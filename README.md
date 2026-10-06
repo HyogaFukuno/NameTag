@@ -20,7 +20,7 @@ Project ウィンドウのフォルダ・ファイルアイコンの右下に、
 Unity の **Window > Package Manager** を開き、左上の **+ > Install package from git URL...** に次の URL を入力します。
 
 ```
-https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.1.2
+https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.1.3
 ```
 
 または `Packages/manifest.json` の `dependencies` に直接追加します。
@@ -28,12 +28,12 @@ https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag
 ```json
 {
   "dependencies": {
-    "com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.1.2"
+    "com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.1.3"
   }
 }
 ```
 
-末尾の `#v1.1.2` を外すと、`main` ブランチの最新版がインストールされます。
+末尾の `#v1.1.3` を外すと、`main` ブランチの最新版がインストールされます。
 
 ## 使い方
 
@@ -49,7 +49,7 @@ https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag
 | 対象 | 表示される名前タグ |
 | --- | --- |
 | フォルダ | 自身に設定された名前タグ |
-| ファイル（名前タグ未設定） | 最も近い親フォルダの名前タグ（グレーの斜体で表示） |
+| ファイル（名前タグ未設定） | 最も近い親フォルダの名前タグ（グレーの文字で表示） |
 | ファイル（名前タグ設定済み） | 自身に設定された名前タグ（親フォルダより優先） |
 
 - Project ウィンドウを 1 行のリスト表示にしている場合は、行の右端に表示します。

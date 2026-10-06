@@ -42,6 +42,9 @@ namespace NameTag.Editor
                     clipping = TextClipping.Clip,
                     padding = new RectOffset(0, 0, 0, 0),
                     margin = new RectOffset(0, 0, 0, 0),
+                    // 斜体などのスタイル指定はエディタフォントに該当データがないと OS フォントの読み込みが走り、
+                    // Windows では存在しない macOS 用フォント(Menlo)の読み込み警告が出るため、通常スタイルに固定する
+                    fontStyle = FontStyle.Normal,
                 };
             }
 
@@ -64,7 +67,6 @@ namespace NameTag.Editor
         static void DrawTag(NameTagResolver.Result result, Rect area, float height, bool alignBottom)
         {
             s_Content.text = result.TagName;
-            s_Style.fontStyle = result.Inherited ? FontStyle.Italic : FontStyle.Normal;
             s_Style.normal.textColor = result.Inherited ? k_InheritedTextColor : k_OwnTextColor;
 
             var width = Mathf.Min(s_Style.CalcSize(s_Content).x + k_HorizontalPadding * 2f, area.width);
