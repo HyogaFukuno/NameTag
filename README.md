@@ -1,4 +1,4 @@
-# FileNametag
+# NameTag
 
 複数人でプロジェクトを運用するときに「このフォルダ・ファイルは誰が触るか」を明文化するための Unity エディタ拡張です。
 Project ウィンドウのフォルダ・ファイルアイコンの右下に、担当者の名前タグを表示します。
@@ -20,7 +20,7 @@ Project ウィンドウのフォルダ・ファイルアイコンの右下に、
 Unity の **Window > Package Manager** を開き、左上の **+ > Install package from git URL...** に次の URL を入力します。
 
 ```
-https://github.com/HyogaFukuno/FileNametag.git?path=Packages/com.hyogafukuno.nametag#v1.1.1
+https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.1.2
 ```
 
 または `Packages/manifest.json` の `dependencies` に直接追加します。
@@ -28,12 +28,12 @@ https://github.com/HyogaFukuno/FileNametag.git?path=Packages/com.hyogafukuno.nam
 ```json
 {
   "dependencies": {
-    "com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/FileNametag.git?path=Packages/com.hyogafukuno.nametag#v1.1.1"
+    "com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.1.2"
   }
 }
 ```
 
-末尾の `#v1.1.1` を外すと、`main` ブランチの最新版がインストールされます。
+末尾の `#v1.1.2` を外すと、`main` ブランチの最新版がインストールされます。
 
 ## 使い方
 
@@ -86,7 +86,7 @@ git pull などで設定ファイルや割り当てファイルが更新され�
 ## リポジトリ構成
 
 ```
-FileNametag/
+NameTag/
 ├── Packages/
 │   └── com.hyogafukuno.nametag/   # パッケージ本体（git URL で配布）
 │       ├── Editor/                # エディタ拡張のソースコード

@@ -1,6 +1,6 @@
 {
   "name": "com.hyogafukuno.nametag",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "displayName": "NameTag",
   "description": "Project ウィンドウのフォルダ・ファイルアイコン右下に担当者の名前タグを表示するエディタ拡張です。名前は Project Settings > NameTag Settings で登録し、インスペクタ下部のプルダウンから割り当てます。",
   "unity": "2021.3",
@@ -17,6 +17,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/HyogaFukuno/FileNametag.git"
+    "url": "https://github.com/HyogaFukuno/NameTag.git"
   }
 }

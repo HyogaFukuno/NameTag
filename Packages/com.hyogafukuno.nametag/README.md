@@ -8,16 +8,16 @@ Project ウィンドウのフォルダ・ファイルアイコンの右下に名
 Package Manager の **+ > Install package from git URL...** に次の URL を入力します。
 
 ```
-https://github.com/HyogaFukuno/FileNametag.git?path=Packages/com.hyogafukuno.nametag
+https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag
 ```
 
 または `Packages/manifest.json` の `dependencies` に追加します。
 
 ```json
-"com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/FileNametag.git?path=Packages/com.hyogafukuno.nametag"
+"com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag"
 ```
 
-特定のバージョンに固定する場合は、URL の末尾にタグを指定します（例: `#v1.1.1`）。
+特定のバージョンに固定する場合は、URL の末尾にタグを指定します（例: `#v1.1.2`）。
 
 ## 使い方
 
