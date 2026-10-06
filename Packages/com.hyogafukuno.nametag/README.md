@@ -17,7 +17,7 @@ https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag
 "com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag"
 ```
 
-特定のバージョンに固定する場合は、URL の末尾にタグを指定します（例: `#v1.1.2`）。
+特定のバージョンに固定する場合は、URL の末尾にタグを指定します（例: `#v1.1.3`）。
 
 ## 使い方
 
@@ -28,7 +28,7 @@ https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag
 ## 表示ルール
 
 - フォルダは、自身に設定された名前タグを表示します。
-- ファイルは、自身に名前タグがなければ最も近い親フォルダの名前タグを表示します（グレーの斜体で表示）。
+- ファイルは、自身に名前タグがなければ最も近い親フォルダの名前タグを表示します（グレーの文字で表示）。
 - ファイル自身に名前タグが設定されている場合は、そちらを優先して表示します。
 - Project ウィンドウを 1 行のリスト表示にしている場合は、行の右端に表示します。
 
