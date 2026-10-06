@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.2] - 2026-10-06
+
+### Changed
+- リポジトリ名を `FileNametag` から `NameTag` に変更し、インストール URL と `package.json` の `repository.url` を更新しました。旧 URL も GitHub により新しい URL へ転送されます。
+
 ## [1.1.1] - 2026-10-03
 
 ### Changed
