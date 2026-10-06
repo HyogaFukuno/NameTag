@@ -9,6 +9,7 @@ Project ウィンドウのフォルダ・ファイルアイコンの右下に、
 - **インスペクタから割り当て**: フォルダやファイルを選択し、インスペクタ下部（Asset Labels の上）のプルダウンから名前タグを設定できます。複数選択での一括設定にも対応しています。
 - **アイコン右下にタグを表示**: 名前タグは白い角丸背景付きで表示されるので、どのアイコンの上でも読みやすくなっています。
 - **親フォルダから継承**: ファイルに名前タグがない場合は、親フォルダの名前タグを表示します。ファイル自身に名前タグを設定すると、そちらが優先されます。
+- **スクリプトに担当者を記録**: スクリプトに名前タグを付けると、ファイルの先頭に `// Last assigned by ○○` を書き込みます。タグを外してもコメントは残るので、担当の履歴が分かります。
 - **チームで共有しやすい保存形式**: 割り当てを 1 件につき 1 ファイルで `ProjectSettings/NameTags/` に保存するため、別々のアセットへのタグ付けが git でコンフリクトしません。
 
 ## 動作環境
@@ -20,7 +21,7 @@ Project ウィンドウのフォルダ・ファイルアイコンの右下に、
 Unity の **Window > Package Manager** を開き、左上の **+ > Install package from git URL...** に次の URL を入力します。
 
 ```
-https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.1.3
+https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.2.0
 ```
 
 または `Packages/manifest.json` の `dependencies` に直接追加します。
@@ -28,12 +29,12 @@ https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag
 ```json
 {
   "dependencies": {
-    "com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.1.3"
+    "com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag#v1.2.0"
   }
 }
 ```
 
-末尾の `#v1.1.3` を外すと、`main` ブランチの最新版がインストールされます。
+末尾の `#v1.2.0` を外すと、`main` ブランチの最新版がインストールされます。
 
 ## 使い方
 
@@ -54,6 +55,27 @@ https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag
 
 - Project ウィンドウを 1 行のリスト表示にしている場合は、行の右端に表示します。
 - NameTag Settings から削除した名前のタグは表示されなくなります（割り当て自体は残り、インスペクタでは「(未登録)」と表示されます）。
+
+## スクリプトの担当者コメント
+
+スクリプト（`.cs`）に名前タグを付けた、または別の名前に変えたとき、ファイルの 1 行目に担当者のコメントを書き込みます。
+
+```csharp
+// Last assigned by 佐藤
+using UnityEngine;
+```
+
+- 1 行目がすでに `// Last assigned by` で始まっている場合は、その行を置き換えます（行は増えません）。
+- 名前タグを外しても、誰が担当していたか分かるようにコメントは残します。
+- フォルダに名前タグを付けた、または変えたときは、そのフォルダ直下のスクリプトのうち、自身に名前タグがないものにもフォルダの名前タグで書き込みます。
+  - スクリプト自身に名前タグがある場合は、そちらを優先してフォルダの名前タグでは書き換えません。
+  - サブフォルダの中のスクリプト（孫以降）には書き込みません。
+- 読み取り専用のパッケージ内のスクリプトと、UTF-8 以外の文字コードで保存されたスクリプトには書き込みません（後者は Console に警告を出します）。
+- BOM の有無と改行コードは元のファイルのものを保ちます。
+- 新しく作ったスクリプトにも、すぐ上の親フォルダに名前タグがあれば、そのタグで書き込みます。
+  - 「新しく作った」は、Unity がそのスクリプトの `.meta` を新しく作成したことで判定します。git などで `.meta` ごと取り込んだスクリプトは対象になりません。
+  - IDE の機能などで `.meta` も同時に作られた場合は、新しく作ったスクリプトとして検知されません。
+- コメントを書き込むとスクリプトが変更されるため、再コンパイルが走ります。
 
 ## データの保存先
 

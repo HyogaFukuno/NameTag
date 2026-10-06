@@ -85,16 +85,18 @@ namespace NameTag.Editor
         {
             EnsureLoaded();
 
-            var changed = false;
+            var changedGuids = new List<string>();
             foreach (var guid in guids)
             {
-                if (!IsValidGuid(guid)) continue;
-                changed |= Write(guid, tagName);
+                if (IsValidGuid(guid) && Write(guid, tagName)) changedGuids.Add(guid);
             }
 
-            if (!changed) return;
+            if (changedGuids.Count == 0) return;
             s_Signature = ComputeSignature();
             NameTagSettings.NotifyChanged();
+
+            // タグを付けた・変えたスクリプト(フォルダなら直下のスクリプト)に担当者コメントを残す。外したときは残したままにする
+            if (!string.IsNullOrEmpty(tagName)) NameTagScriptHeader.Apply(changedGuids, tagName);
         }
 
         public static void SetTag(string guid, string tagName) => SetTag(new[] { guid }, tagName);
