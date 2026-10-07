@@ -76,7 +76,9 @@ namespace NameTag.Editor
             var radius = Mathf.Min(k_CornerRadius, height * 0.5f);
             GUI.DrawTexture(tagRect, Texture2D.whiteTexture, ScaleMode.StretchToFill, true, 0f, k_BackgroundColor, 0f, radius);
             GUI.DrawTexture(tagRect, Texture2D.whiteTexture, ScaleMode.StretchToFill, true, 0f, k_BorderColor, 1f, radius);
-            GUI.Label(tagRect, s_Content, s_Style);
+            // GUI.Label はマウスのホバー・押下に応じて hover/active の文字色(エディタ標準の薄いグレー)で描くため、
+            // クリックすると文字が薄くなる。タグは操作対象ではないので、常に通常状態で描画する
+            s_Style.Draw(tagRect, s_Content, false, false, false, false);
         }
     }
 }

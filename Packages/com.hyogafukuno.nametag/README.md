@@ -17,7 +17,7 @@ https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag
 "com.hyogafukuno.nametag": "https://github.com/HyogaFukuno/NameTag.git?path=Packages/com.hyogafukuno.nametag"
 ```
 
-特定のバージョンに固定する場合は、URL の末尾にタグを指定します（例: `#v1.2.0`）。
+特定のバージョンに固定する場合は、URL の末尾にタグを指定します（例: `#v1.2.1`）。
 
 ## 使い方
 
